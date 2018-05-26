@@ -1,0 +1,187 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>Login Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts--> 
+<!--animate-->
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="js/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+<!-- Metis Menu -->
+<script src="js/metisMenu.min.js"></script>
+<script src="js/custom.js"></script>
+    <script language="javascript" type="text/javascript">
+
+        $(document).ready(function () {
+
+            var menuLeft = document.getElementById('cbp-spmenu-s1'),
+				//showLeftPush = document.getElementById('showLeftPush'),
+				body = document.body;
+            classie.toggle(body, 'cbp-spmenu-push-toright');
+            classie.toggle(menuLeft, 'cbp-spmenu-open')
+          
+           
+        });
+
+        function POST()
+        {
+            if ($("input[name = 'email']").val() != null && $("input[name='password']").val() != null) {
+                login();
+            }
+            else {
+                $("#messagetxt").text("用户名或密码不能为空");
+            }
+
+            return false;
+        }
+
+
+
+        function login() {
+
+            
+            
+        $.ajax({
+                url: '/Login.ashx',
+                type: 'POST',
+                data: { 'username': $("input[name = 'email']").val(), 'password': $("input[name='password']").val() },
+                dataType: 'json',
+           
+                timeout: 50000,
+                //contentType: 'application/json;charset=utf-8',
+                success: function (response) {
+
+                    if (response.success != 2) {
+                        
+                        $("#messagetxt").text(response.message);  //返回登录信息
+                       
+
+                    }
+                    else
+                    {   //住页面跳转
+                        //alert(response.zhiwu);
+                        if (response.zhiwu == "职工")
+                        { window.location.href = "xueyuan.html?id=" + $("input[name = 'email']").val(); } //id=1学生 id=2职工
+                        if (response.zhiwu == "学生")
+                        {
+                            window.location.href = "banzheng.html?id=" + $("input[name = 'email']").val();
+                        }
+                        
+                    }
+
+                
+            },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
+            },
+
+            });
+        
+ }
+
+    </script>
+
+
+
+<link href="css/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+       
+		<!-- //header-ends -->
+		<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="main-page login-page ">
+				<h3 class="title1">登录</h3>
+				<div class="widget-shadow">
+					<div class="login-top">
+						<h4>欢迎来到学生证管理系统 <br> 新生报到 <a href="signup.html">  注册 »</a> </h4>
+					</div>
+					<div class="login-body">
+                        <iframe id="iframe_display" name="iframe_display" style="display: none;"></iframe> <!--防止form跳转页面-->
+                        <form target="iframe_display">
+                            <input type="text" class="user" name="email" placeholder="输入学号/职工号" required="">
+                            <input type="password" name="password" class="lock" placeholder="密码">
+                            <input type="submit" name="Sign In" value="登录" onclick="POST()">
+                            <div class="forgot-grid">
+                                <!--<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Remember me</label>
+            <div class="forgot">
+                <a href="#">forgot password?</a>
+            </div>-->
+                                <div id="messagetxt" style="color:red"></div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </form>
+					</div>
+				</div>
+				
+				<div class="login-page-bottom">
+					<h5> - OR -</h5>
+					<div class="social-btn"><a href="#"><i class="fa fa-facebook"></i><i>Sign In with Facebook</i></a></div>
+					<div class="social-btn sb-two"><a href="#"><i class="fa fa-twitter"></i><i>Sign In with Twitter</i></a></div>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+		   <p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">修改者:孙健</a></p>
+		</div>
+        <!--//footer-->
+	</div>
+	<!-- Classie -->
+		<script src="js/classie.js"></script>
+		<script>
+			//var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			//	showLeftPush = document.getElementById( 'showLeftPush' ),
+			//	body = document.body;
+				
+			//showLeftPush.onclick = function () {
+			   
+			//	classie.toggle( this, 'active' );
+			//	classie.toggle( body, 'cbp-spmenu-push-toright' );
+			//	classie.toggle( menuLeft, 'cbp-spmenu-open' );
+			//	//disableOther( 'showLeftPush' );
+			//};
+			
+			//function disableOther( button ) {
+			//	if( button !== 'showLeftPush' ) {
+			//		classie.toggle( showLeftPush, 'disabled' );
+			//	}
+			//}
+		</script>
+	<!--scrolling js-->
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<!--//scrolling js-->
+	<!-- Bootstrap Core JavaScript -->
+   <script src="js/bootstrap.js"> </script>
+</body>
+</html>

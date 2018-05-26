@@ -1,0 +1,453 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tables</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+    <!--<script src="js/jquery.min.js"></script>-->
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts--> 
+<!--animate-->
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="js/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+<!-- Metis Menu -->
+<script src="js/metisMenu.min.js"></script>
+<script src="js/custom.js"></script>
+<link href="css/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+
+    <!-- Latest compiled and minified Locales -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+  
+
+    <script language="javascript" type="text/javascript">
+
+        $(function () {
+
+            //1.初始化Table
+            var oTable = new TableInit();
+            oTable.Init();
+
+            //2.初始化Button的点击事件
+            var oButtonInit = new ButtonInit();
+            oButtonInit.Init();
+
+        });
+
+
+        var TableInit = function () {
+            var oTableInit = new Object();
+            //初始化Table
+            oTableInit.Init = function () {
+                $('#tb_departments').bootstrapTable({
+                    url: '/Table.ashx',         //请求后台的URL（*）
+                    method: 'get',                      //请求方式（*）
+                    toolbar: '#toolbar',                //工具按钮用哪个容器
+                    striped: true,                      //是否显示行间隔色
+                    cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                    pagination: true,                   //是否显示分页（*）
+                    sortable: false,                     //是否启用排序
+                    sortOrder: "asc",                   //排序方式
+                    queryParams: oTableInit.queryParams,//传递参数（*）
+                    sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                    pageNumber: 1,                       //初始化加载第一页，默认第一页
+                    pageSize: 10,                       //每页的记录行数（*）
+                    pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                    search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+                    strictSearch: true,
+                    showColumns: true,                  //是否显示所有的列
+                    showRefresh: true,                  //是否显示刷新按钮
+                    minimumCountColumns: 2,             //最少允许的列数
+                    clickToSelect: true,                //是否启用点击选中行
+                    height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                    uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+                    showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+                    cardView: false,                    //是否显示详细视图
+                    detailView: false,                   //是否显示父子表
+                    columns: [{
+                        checkbox: true
+                    }, {
+                        field: 'Name',
+                        title: '部门名称'
+                    }, {
+                        field: 'ParentName',
+                        title: '上级部门'
+                    }, {
+                        field: 'Level',
+                        title: '部门级别'
+                    }, {
+                        field: 'Desc',
+                        title: '描述'
+                    }, ]
+                });
+            };
+
+            //得到查询的参数
+            oTableInit.queryParams = function (params) {
+                var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                    limit: params.limit,   //页面大小
+                    offset: params.offset,  //页码
+                    departmentname: $("#txt_search_departmentname").val(),
+                    statu: $("#txt_search_statu").val()
+                };
+                return temp;
+            };
+            return oTableInit;
+        };
+
+
+        var ButtonInit = function () {
+            var oInit = new Object();
+            var postdata = {};
+
+            oInit.Init = function () {
+                //初始化页面上面的按钮事件
+            };
+
+            return oInit;
+        };
+
+
+    </script>
+
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		<div class=" sidebar" role="navigation">
+            <div class="navbar-collapse">
+				<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+					<ul class="nav" id="side-menu">
+                        <li id="banli">
+                            <a href="#"><i class="fa fa-cogs nav_icon"></i>业务办理 <span class="nav-badge">12</span> <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="grids.html">办证</a>
+                                </li>
+                                <li>
+                                    <a href="media.html">补证</a>
+                                </li>
+                                <li>
+                                    <a href="media.html">查看受理进度</a>
+                                </li>
+
+                            </ul>
+                            <!-- /nav-second-level -->
+                        </li>
+                        <li class="">
+                            <a href="#"><i class="fa fa-book nav_icon"></i>信息管理 <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="general.html">学院信息管理<span class="nav-badge-btm">08</span></a>
+                                </li>
+                                <li>
+                                    <a href="typography.html">专业信息管理</a>
+                                </li>
+                                <li>
+                                    <a href="typography.html">学生信息管理</a>
+                                </li>
+                            </ul>
+                            <!-- /nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-envelope nav_icon"></i>业务受理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="inbox.html">办证补证<span class="nav-badge-btm">2</span></a>
+                                </li>
+                                <li>
+                                    <a href="compose.html">证件打印</a>
+                                </li>
+                            </ul>
+                            <!-- //nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table nav_icon"></i>Tables <span class="nav-badge">05</span></a>
+                        </li>
+					</ul>
+					<div class="clearfix"> </div>
+					<!-- //sidebar-collapse -->
+				</nav>
+			</div>
+		</div>
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		<div class="sticky-header header-section ">
+			<div class="header-left">
+				<!--toggle button start-->
+				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
+				<!--toggle button end-->
+				<!--logo -->
+				<div class="logo">
+					<a href="index.html">
+						<h1>NOVUS</h1>
+						<span>AdminPanel</span>
+					</a>
+				</div>
+				<!--//logo-->
+				<!--search-box-->
+				<div class="search-box">
+					<form class="input">
+						<input class="sb-search-input input__field--madoka" placeholder="Search..." type="search" id="input-31" />
+						<label class="input__label" for="input-31">
+							<svg class="graphic" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+								<path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
+							</svg>
+						</label>
+					</form>
+				</div><!--//end-search-box-->
+				<div class="clearfix"> </div>
+			</div>
+			<div class="header-right">
+				<div class="profile_details_left"><!--notifications of menu start -->
+					<ul class="nofitications-dropdown">
+						<li class="dropdown head-dpdn">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="notification_header">
+										<h3>You have 3 new messages</h3>
+									</div>
+								</li>
+								<li><a href="#">
+								   <div class="user_img"><img src="images/1.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet</p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								   <div class="clearfix"></div>	
+								</a></li>
+								<li class="odd"><a href="#">
+									<div class="user_img"><img src="images/2.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet </p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								  <div class="clearfix"></div>	
+								</a></li>
+								<li><a href="#">
+								   <div class="user_img"><img src="images/3.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet </p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								   <div class="clearfix"></div>	
+								</a></li>
+								<li>
+									<div class="notification_bottom">
+										<a href="#">See all messages</a>
+									</div> 
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown head-dpdn">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">3</span></a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="notification_header">
+										<h3>You have 3 new notification</h3>
+									</div>
+								</li>
+								<li><a href="#">
+									<div class="user_img"><img src="images/2.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet</p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								  <div class="clearfix"></div>	
+								 </a></li>
+								 <li class="odd"><a href="#">
+									<div class="user_img"><img src="images/1.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet </p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								   <div class="clearfix"></div>	
+								 </a></li>
+								 <li><a href="#">
+									<div class="user_img"><img src="images/3.png" alt=""></div>
+								   <div class="notification_desc">
+									<p>Lorem ipsum dolor amet </p>
+									<p><span>1 hour ago</span></p>
+									</div>
+								   <div class="clearfix"></div>	
+								 </a></li>
+								 <li>
+									<div class="notification_bottom">
+										<a href="#">See all notifications</a>
+									</div> 
+								</li>
+							</ul>
+						</li>	
+						<li class="dropdown head-dpdn">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks"></i><span class="badge blue1">15</span></a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="notification_header">
+										<h3>You have 8 pending task</h3>
+									</div>
+								</li>
+								<li><a href="#">
+									<div class="task-info">
+										<span class="task-desc">Database update</span><span class="percentage">40%</span>
+										<div class="clearfix"></div>	
+									</div>
+									<div class="progress progress-striped active">
+										<div class="bar yellow" style="width:40%;"></div>
+									</div>
+								</a></li>
+								<li><a href="#">
+									<div class="task-info">
+										<span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
+									   <div class="clearfix"></div>	
+									</div>
+									<div class="progress progress-striped active">
+										 <div class="bar green" style="width:90%;"></div>
+									</div>
+								</a></li>
+								<li><a href="#">
+									<div class="task-info">
+										<span class="task-desc">Mobile App</span><span class="percentage">33%</span>
+										<div class="clearfix"></div>	
+									</div>
+								   <div class="progress progress-striped active">
+										 <div class="bar red" style="width: 33%;"></div>
+									</div>
+								</a></li>
+								<li><a href="#">
+									<div class="task-info">
+										<span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
+									   <div class="clearfix"></div>	
+									</div>
+									<div class="progress progress-striped active">
+										 <div class="bar  blue" style="width: 80%;"></div>
+									</div>
+								</a></li>
+								<li>
+									<div class="notification_bottom">
+										<a href="#">See all pending tasks</a>
+									</div> 
+								</li>
+							</ul>
+						</li>	
+					</ul>
+					<div class="clearfix"> </div>
+				</div>
+				<!--notification menu end -->
+				<div class="profile_details">		
+					<ul>
+						<li class="dropdown profile_details_drop">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								<div class="profile_img">	
+									<span class="prfil-img"><img src="images/a.png" alt=""> </span> 
+									<div class="user-name">
+										<p>Wikolia</p>
+										<span>Administrator</span>
+									</div>
+									<i class="fa fa-angle-down lnr"></i>
+									<i class="fa fa-angle-up lnr"></i>
+									<div class="clearfix"></div>	
+								</div>	
+							</a>
+							<ul class="dropdown-menu drp-mnu">
+								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+								<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
+								<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>	
+			</div>
+			<div class="clearfix"> </div>	
+		</div>
+		<!-- //header-ends -->
+		<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="main-page">
+				<div class="tables">
+					<h3 class="title1">Tables</h3>
+					<div class="panel-body widget-shadow">
+						<h4>Basic Table:</h4>
+                        <div id="toolbar" class="btn-group">
+                            <button id="btn_add" type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+                            </button>
+                            <button id="btn_edit" type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
+                            </button>
+                            <button id="btn_delete" type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                            </button>
+                        </div>
+                        <table id="tb_departments"></table>
+					</div>
+					
+					
+					
+					
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+		   <p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+		</div>
+        <!--//footer-->
+	</div>
+	<!-- Classie -->
+		<script src="js/classie.js"></script>
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				showLeftPush = document.getElementById( 'showLeftPush' ),
+				body = document.body;
+				
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeftPush' );
+			};
+			
+			function disableOther( button ) {
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+			}
+		</script>
+	<!--scrolling js-->
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<!--//scrolling js-->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.js"> </script>
+</body>
+</html>

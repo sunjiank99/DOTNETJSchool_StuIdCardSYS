@@ -1,0 +1,9 @@
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\StuIDCardMSYS.dll.config
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\StuIDCardMSYS.dll
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\StuIDCardMSYS.pdb
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\Maticsoft.Common.dll
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\Maticsoft.DBUtility.dll
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\Newtonsoft.Json.dll
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\obj\Release\StuIDCardMSYS.dll
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\obj\Release\StuIDCardMSYS.pdb
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\obj\Release\StuIDCardMSYS.csprojResolveAssemblyReference.cache

@@ -1,0 +1,555 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>SignUp Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+
+    
+
+
+ <!-- js-->
+<script src="js/jquery.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!--//webfonts--> 
+<!--animate-->
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="js/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+<!-- Metis Menu -->
+<script src="js/metisMenu.min.js"></script>
+<script src="js/custom.js"></script>
+    <script language="javascript" type="text/javascript">
+
+        var xueyuan;
+        var zhuanye;
+        var banji;
+        var zhuceInfo = new Object(); //注册信息
+        var json_zhuceInfo;
+
+
+        $(document).ready(function () {
+            getXueyuan();
+            //var menuLeft = document.getElementById('cbp-spmenu-s1'),
+			//	//showLeftPush = document.getElementById('showLeftPush'),
+			//	body = document.body;
+            //classie.toggle(body, 'cbp-spmenu-push-toright');
+            //classie.toggle(menuLeft, 'cbp-spmenu-open')
+
+            
+        });
+
+        //学院下拉选中事件
+        function selectOnchang(obj){
+
+            var value = obj.options[obj.selectedIndex].value;
+            getZhuanye(value);
+            ////alert(value);
+
+        }
+
+        //专业下拉选中事件
+        function ZhuanyeselectOnchang(obj) {
+
+            var value = obj.options[obj.selectedIndex].text;
+            var Vxueyuan = $("#editcolor .selectpicker option:selected").text();
+            //alert(value);
+            //alert(Vxueyuan);
+            getBanji(value,Vxueyuan);
+            
+
+        }
+
+        //下拉框得到学院信息
+        function getXueyuan() {
+            //alert("ss");
+            $.ajax({
+                url: '/SignUp.ashx',
+                type: 'POST',
+                data: { 'option': 0 },
+                dataType: 'json',
+
+                timeout: 50000,
+                //contentType: 'application/json;charset=utf-8',
+                success: function (response) {
+                    
+                    $('#editcolor .selectpicker').empty();
+                    xueyuan = response["ds"];
+                    var data = eval(xueyuan);
+                    $.each(data, function (i) {
+                        $("<option value='" + data[i].学院编号 + "'>" + data[i].学院 + "</option>")
+                                                                        .appendTo("#editcolor .selectpicker");
+                    });
+                   // $('#editcolor .selectpicker').selectpicker('val', oldnumber);//默认选中
+                    $('#editcolor .selectpicker').selectpicker('refresh');
+
+                    //alert(xueyuan);
+
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus);
+                },
+
+            });
+
+        }
+
+        //下拉框得到专业信息
+        function getZhuanye(value) {
+            //alert("ss");
+            $.ajax({
+                url: '/SignUp.ashx',
+                type: 'POST',
+                data: { 'option': 1,'zhuanye':value },
+                dataType: 'json',
+
+                timeout: 50000,
+                //contentType: 'application/json;charset=utf-8',
+                success: function (response) {
+
+                    $('#zhuanyeeditcolor .selectpicker').empty();
+                    zhuanye = response["ds"];
+                    var data = eval(zhuanye);
+
+                    //alert(data[0].专业);
+                    $.each(data, function (i) {
+                        $("<option value='" + data[i].专业编号 + "'>" + data[i].专业 + "</option>")
+                                                                        .appendTo("#zhuanyeeditcolor .selectpicker");
+                    });
+                    // $('#editcolor .selectpicker').selectpicker('val', oldnumber);//默认选中
+                    $('#zhuanyeeditcolor .selectpicker').selectpicker('refresh');
+
+                    //alert(xueyuan);
+
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus);
+                },
+
+            });
+
+        }
+
+
+        //下拉框得到班级信息
+        function getBanji(value, Vxueyuan) {
+            //alert("ss");
+            $.ajax({
+                url: '/SignUp.ashx',
+                type: 'POST',
+                data: { 'option': 2, 'banji': value, 'xueyuan': Vxueyuan },
+                dataType: 'json',
+
+                timeout: 50000,
+                //contentType: 'application/json;charset=utf-8',
+                success: function (response) {
+
+                    $('#banjieditcolor .selectpicker').empty();
+                    banji = response["ds"];
+                    var data = eval(banji);
+
+                    //alert(data[0].班级);
+                    $.each(data, function (i) {
+                        $("<option value='" + data[i].班级 + "'>" + data[i].班级 + "</option>")
+                                                                        .appendTo("#banjieditcolor .selectpicker");
+                    });
+                    // $('#editcolor .selectpicker').selectpicker('val', oldnumber);//默认选中
+                    $('#banjieditcolor .selectpicker').selectpicker('refresh');
+
+                    //alert(xueyuan);
+
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus);
+                },
+
+            });
+
+        }
+
+
+        //注册提交信息
+        function POST() {
+            
+            zhuceInfo.stuName = $("input[id = 'stuName']").val();
+            zhuceInfo.stuEmail = $("input[id = 'stuEmail']").val();
+            zhuceInfo.xueyuan = $("#editcolor .selectpicker option:selected").text();
+            zhuceInfo.zhuanye = $("#zhuanyeeditcolor .selectpicker option:selected").text();
+            zhuceInfo.banji = $("#banjieditcolor .selectpicker option:selected").text();
+            zhuceInfo.stuBirth = $("#datetimepicker1 input[type='text']").val();
+            zhuceInfo.stuGender = $("input[type='radio']:checked").val();
+            zhuceInfo.stuId = $("input[id = 'stuId']").val();
+            zhuceInfo.stuPs = $("input[id = 'stuPs']").val();
+            zhuceInfo.stuPsCertain = $("input[id = 'stuPSCertain']").val();
+            //alert(zhuceInfo.stuPs);
+            //alert(zhuceInfo.stuPsCertain);
+            var CanPost = true;
+
+         
+
+            
+            if (zhuceInfo.stuName == "") {
+                $("input[id = 'stuName']").css("color","red");
+                $("input[id = 'stuName']").val("姓名不能为空");
+                CanPost=false;
+
+            }
+            if (zhuceInfo.stuPs == "") {
+                $("input[id = 'stuPs']").css("color", "red");
+                $("input[id = 'stuPs']").attr("placeholder", "请输入密码");
+                CanPost = false;
+            }
+            else {
+
+                var aaa=new Boolean();
+                aaa = (zhuceInfo.stuPsCertain == zhuceInfo.stuPs);
+                if (aaa) {
+                    CanPost = true;
+                }
+                else {
+                    $("#errortxt").css("color", "red");
+                    $("#errortxt").text("输入密码不一致");
+                    CanPost = false;
+                }
+            }
+           
+
+         
+            if (CanPost)
+            {
+                json_zhuceInfo = JSON.stringify(zhuceInfo);
+                login()
+            }
+
+            return false;
+        }
+
+
+
+        function login() {
+
+
+
+            $.ajax({
+                url: '/SignUp.ashx',
+                type: 'POST',
+                data: { 'option': 3, 'stuInfo': json_zhuceInfo },
+                dataType: 'json',
+
+                timeout: 50000,
+                //contentType: 'application/json;charset=utf-8',
+                success: function (response) {
+
+                    if (response.success == "true") {
+
+                        //$("#errortxt").text(response.message);
+                        window.location.href = "banzheng.html?id=" + $("input[id = 'stuId']").val();
+                    }
+                    else
+                    {
+                        $("#errortxt").text(response.message);
+                    }
+
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus);
+                },
+
+            });
+
+        }
+
+
+    $(document).ready(function () {
+
+        var menuLeft = document.getElementById('cbp-spmenu-s1'),
+        	//showLeftPush = document.getElementById('showLeftPush'),
+        	body = document.body;
+        classie.toggle(body, 'cbp-spmenu-push-toright');
+        //classie.toggle(menuLeft, 'cbp-spmenu-open')
+
+
+        
+
+
+    });
+
+   
+
+
+    </script>
+
+<link href="css/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+
+    <!--下拉菜单-->
+    <!-- Latest compiled and minified CSS -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">-->
+
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>-->
+    <script src="js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>-->
+    <script src="js/defaults-zh_CN.min.js"></script>
+    <!--日期选择器-->
+    
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet"  />-->
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!--<link href="css/bootstrap-datetimepicker.css" rel="stylesheet" />-->
+    <!--<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">-->
+    
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>-->
+    <!--<script src="js/bootstrap-datetimepicker.js"></script>-->
+    <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+
+
+    <script language="javascript" type="text/javascript">
+
+        $(function () {
+            $('#datetimepicker1').datetimepicker(
+                {
+                    format: 'YYYY-MM-DD'
+                }
+
+                );
+        });
+    </script>
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+        
+		
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+       
+		<!-- //header-ends -->
+		<!-- main content start-->
+		<div id="page-wrapper" >
+			<div class="main-page signup-page">
+				<h3 class="title1">学生信息注册</h3>
+				<p class="creating"></p>
+				<div class="sign-up-row widget-shadow">
+					<h5>学生信息 :</h5>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4>姓名* :</h4>
+						</div>
+						<div class="sign-up2">
+							<form>
+								<input id="stuName" type="text"  required>
+							</form>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4>邮箱* :</h4>
+						</div>
+						<div class="sign-up2">
+							<form>
+								<input id="stuEmail" type="text" required>
+							</form>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+                    <div class="sign-u" >
+                        <div class="sign-up1">
+                            <h4>学院* :</h4>
+                        </div>
+                        <div class="sign-up2" id="editcolor">
+                            <select class="selectpicker" onchange="selectOnchang(this) " data-width="100%">
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                            </select>
+
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="sign-u">
+                        <div class="sign-up1" >
+                            <h4>专业* :</h4>
+                        </div>
+                        <div class="sign-up2" id="zhuanyeeditcolor">
+                            <select class="selectpicker" onchange="ZhuanyeselectOnchang(this) " data-width="100%">
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                            </select>
+
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="sign-u">
+                        <div class="sign-up1">
+                            <h4>班级* :</h4>
+                        </div>
+                        <div class="sign-up2" id="banjieditcolor">
+                            <select class="selectpicker" data-style="btn-primary" data-width="100%">
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                            </select>
+
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="sign-u">
+                        <div class="sign-up1">
+                            <h4>出生日期* :</h4>
+                        </div>
+                        <div class="sign-up2" >
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' class="form-control" />
+                                <span class="input-group-addon" >
+                                    <span class="glyphicon glyphicon-calendar" ></span>
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4>性别* :</h4>
+						</div>
+						<div class="sign-up2">
+							<label>
+								<input type="radio" name="Gender" value="男"required>
+								男
+							</label>
+							<label>
+								<input type="radio" name="Gender" value="女" required>
+								女
+							</label>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<h6>登录信息 :</h6>
+                    <div class="sign-u">
+                        <div class="sign-up1">
+                            <h4>账号* :</h4>
+                        </div>
+                        <div class="sign-up2">
+                            <form>
+                                <input id="stuId"type="text" required>
+                            </form>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4>密码* :</h4>
+						</div>
+						<div class="sign-up2">
+							<form>
+								<input id="stuPs" type="password" required>
+							</form>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4>确认密码* :</h4>
+						</div>
+						<div class="sign-up2">
+							<form>
+                                <input id="stuPSCertain" type="password" required>
+							</form>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+                    <div class="sign-u" id="error">
+                        <div class="sign-up1">
+                            <h4>提示信息 :</h4>
+                        </div>
+                        <div class="sign-up2" id="errortxt">
+                            
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+					<div class="sub_home">
+                        <iframe id="iframe_display" name="iframe_display" style="display: none;"></iframe> <!--防止form跳转页面-->
+                        <form target="iframe_display">
+                            <input type="submit" value="Submit" onclick="POST()">
+                        </form>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+		   <p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+		</div>
+        <!--//footer-->
+	</div>
+	<!-- Classie -->
+		<script src="js/classie.js"></script>
+		<script>
+			//var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			//	showLeftPush = document.getElementById( 'showLeftPush' ),
+			//	body = document.body;
+				
+			//showLeftPush.onclick = function() {
+			//	classie.toggle( this, 'active' );
+			//	classie.toggle( body, 'cbp-spmenu-push-toright' );
+			//	classie.toggle( menuLeft, 'cbp-spmenu-open' );
+			//	disableOther( 'showLeftPush' );
+			//};
+			
+			//function disableOther( button ) {
+			//	if( button !== 'showLeftPush' ) {
+			//		classie.toggle( showLeftPush, 'disabled' );
+			//	}
+			//}
+		</script>
+	<!--scrolling js-->
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<!--//scrolling js-->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.js"> </script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B14DF7E4-58B9-4AF9-B67D-A779CD471813}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StuIDCardMSYS</RootNamespace>
+    <AssemblyName>StuIDCardMSYS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Maticsoft.Common">
+      <HintPath>..\Maticsoft.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Maticsoft.DBUtility">
+      <HintPath>..\Maticsoft.DBUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator\Downloads\Bootstrap+Table\Bootstrap Table\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap-table-filter\bootstrap-table-filter.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap-table-filter\bs-table.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap-table-filter\extension\bootstrap-table-filter.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap4\css\bootstrap.min.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap4\js\bootstrap.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap4\js\popper.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\css\bootstrap.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\js\bootstrap.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\examples.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\index.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\index.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\jquery.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\sprintf.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\banzheng.html" />
+    <Content Include="cpts_594_bav\cpts_594_bav\blank-page.html" />
+    <Content Include="cpts_594_bav\cpts_594_bav\buzheng.html" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\bootstrap-datetimepicker.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\bootstrap-select.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\bootstrap-table.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\bootstrap-theme.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\bootstrap-theme.min.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\bootstrap.min.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\defaults-zh_CN.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\bootstrap-select.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\bootstrap-table-zh-CN.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\bootstrap-table.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\animate.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\bootstrap.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\clndr.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\custom.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\font-awesome.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\jqvmap.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\css\style.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\accent-neutralise\bootstrap-table-accent-neutralise.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\angular\bootstrap-table-angular.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\auto-refresh\bootstrap-table-auto-refresh.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\auto-refresh\bootstrap-table-auto-refresh.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\click-edit-row\bootstrap-table-click-edit-row.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\click-edit-row\bootstrap-table-click-edit-row.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\cookie\bootstrap-table-cookie.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\copy-rows\bootstrap-table-copy-rows.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\defer-url\bootstrap-table-defer-url.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\editable\bootstrap-table-editable.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\export\bootstrap-table-export.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\filter-control\bootstrap-table-filter-control.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\filter-control\bootstrap-table-filter-control.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\filter\bootstrap-table-filter.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\flat-json\bootstrap-table-flat-json.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\group-by-v2\bootstrap-table-group-by.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\group-by-v2\bootstrap-table-group-by.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\group-by\bootstrap-table-group-by.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\group-by\bootstrap-table-group-by.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\i18n-enhance\bootstrap-table-i18n-enhance.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\key-events\bootstrap-table-key-events.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\mobile\bootstrap-table-mobile.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multi-column-toggle\bootstrap-table-multi-toggle.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multiple-search\bootstrap-table-multiple-search.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multiple-selection-row\bootstrap-table-multiple-selection-row.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multiple-selection-row\bootstrap-table-multiple-selection-row.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multiple-sort\bootstrap-table-multiple-sort.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\natural-sorting\bootstrap-table-natural-sorting.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\page-jumpto\bootstrap-table-jumpto.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\page-jumpto\bootstrap-table-jumpto.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\print\bootstrap-table-print.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\reorder-columns\bootstrap-table-reorder-columns.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\reorder-rows\bootstrap-table-reorder-rows.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\reorder-rows\bootstrap-table-reorder-rows.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\resizable\bootstrap-table-resizable.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\select2-filter\bootstrap-table-select2-filter.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\sticky-header\bootstrap-table-sticky-header.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\sticky-header\bootstrap-table-sticky-header.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\toolbar\bootstrap-table-toolbar.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\tree-column\bootstrap-table-tree-column.css" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\tree-column\bootstrap-table-tree-column.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\tree-column\icon.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\treegrid\bootstrap-table-treegrid.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\treegrid\demo.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\fonts\fontawesome-webfont.svg" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\1.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\2.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\3.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\a.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\i1.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\i2.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\i3.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\i4.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\img1.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\lock.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\tick.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\images\user.png" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\bootstrap-datetimepicker.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\bootstrap.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\bootstrap.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\Chart.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\classie.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\clndr.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\custom.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\defaults-zh_CN.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\defaults-zh_CN.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\jquery-1.11.1.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\jquery-1.8.3.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\jquery.circlechart.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\jquery.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\jquery.nicescroll.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\jquery.vmap.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\jquery.vmap.sampledata.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\jquery.vmap.world.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\metisMenu.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\modernizr.custom.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\moment-2.2.1.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\scripts.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\site.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\skycons.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\underscore-min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\validator.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\wow.min.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-af-ZA.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-ar-SA.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-ca-ES.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-cs-CZ.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-da-DK.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-de-DE.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-el-GR.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-en-US.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-es-AR.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-es-CL.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-es-CR.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-es-ES.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-es-MX.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-es-NI.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-es-SP.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-et-EE.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-eu-EU.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-fa-IR.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-fr-BE.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-fr-FR.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-he-IL.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-hr-HR.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-hu-HU.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-id-ID.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-it-IT.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-ja-JP.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-ka-GE.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-ko-KR.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-ms-MY.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-nb-NO.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-nl-NL.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-pl-PL.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-pt-BR.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-pt-PT.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-ro-RO.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-ru-RU.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-sk-SK.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-sv-SE.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-th-TH.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-tr-TR.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-uk-UA.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-ur-PK.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-uz-Latn-UZ.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-vi-VN.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-zh-CN.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-zh-TW.js" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\sidebar.html" />
+    <Content Include="cpts_594_bav\cpts_594_bav\login.html" />
+    <Content Include="cpts_594_bav\cpts_594_bav\sidebar.html" />
+    <Content Include="cpts_594_bav\cpts_594_bav\signup.html" />
+    <Content Include="cpts_594_bav\cpts_594_bav\tables.html" />
+    <Content Include="cpts_594_bav\cpts_594_bav\xueyuan.html" />
+    <Content Include="cpts_594_bav\cpts_594_bav\yewu_banbuzheng.html" />
+    <Content Include="cpts_594_bav\cpts_594_bav\yewu_dayin.html" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="banbuzheng.ashx.cs">
+      <DependentUpon>banbuzheng.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="dayin.ashx.cs">
+      <DependentUpon>dayin.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.ashx.cs">
+      <DependentUpon>Login.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Judgement.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignUp.ashx.cs">
+      <DependentUpon>SignUp.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SQLTEST.cs" />
+    <Compile Include="SQL\BLL\专业表.cs" />
+    <Compile Include="SQL\BLL\学生表.cs" />
+    <Compile Include="SQL\BLL\学生证表.cs" />
+    <Compile Include="SQL\BLL\学院表.cs" />
+    <Compile Include="SQL\BLL\班级表.cs" />
+    <Compile Include="SQL\BLL\申请表.cs" />
+    <Compile Include="SQL\BLL\登录表.cs" />
+    <Compile Include="SQL\BLL\职工表.cs" />
+    <Compile Include="SQL\DAL\专业表.cs" />
+    <Compile Include="SQL\DAL\学生表.cs" />
+    <Compile Include="SQL\DAL\学生证表.cs" />
+    <Compile Include="SQL\DAL\学院表.cs" />
+    <Compile Include="SQL\DAL\班级表.cs" />
+    <Compile Include="SQL\DAL\申请表.cs" />
+    <Compile Include="SQL\DAL\登录表.cs" />
+    <Compile Include="SQL\DAL\职工表.cs" />
+    <Compile Include="SQL\Model\专业表.cs" />
+    <Compile Include="SQL\Model\学生表.cs" />
+    <Compile Include="SQL\Model\学生证表.cs" />
+    <Compile Include="SQL\Model\学院表.cs" />
+    <Compile Include="SQL\Model\班级表.cs" />
+    <Compile Include="SQL\Model\申请表.cs" />
+    <Compile Include="SQL\Model\登录表.cs" />
+    <Compile Include="SQL\Model\职工表.cs" />
+    <Compile Include="Table.ashx.cs">
+      <DependentUpon>Table.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="xueyuan.ashx.cs">
+      <DependentUpon>xueyuan.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="zhengjianbanli.ashx.cs">
+      <DependentUpon>zhengjianbanli.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cpts_594_bav\cpts_594_bav\fonts\fontawesome-webfont.eot" />
+    <Content Include="cpts_594_bav\cpts_594_bav\fonts\fontawesome-webfont.ttf" />
+    <Content Include="cpts_594_bav\cpts_594_bav\fonts\fontawesome-webfont.woff" />
+    <Content Include="cpts_594_bav\cpts_594_bav\fonts\FontAwesome.otf" />
+    <Content Include="cpts_594_bav\cpts_594_bav\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="cpts_594_bav\cpts_594_bav\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Login.ashx" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\accent-neutralise\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\accent-neutralise\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\auto-refresh\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\auto-refresh\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\click-edit-row\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\cookie\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\cookie\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\copy-rows\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\copy-rows\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\defer-url\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\defer-url\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\editable\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\editable\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\export\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\export\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\filter-control\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\filter-control\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\filter\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\filter\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\flat-json\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\flat-json\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\group-by-v2\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\group-by-v2\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\group-by\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\group-by\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\i18n-enhance\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\i18n-enhance\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\key-events\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\key-events\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\mobile\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\mobile\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multi-column-toggle\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multi-column-toggle\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multiple-search\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multiple-search\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multiple-selection-row\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multiple-selection-row\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multiple-sort\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\multiple-sort\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\natural-sorting\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\natural-sorting\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\page-jumpto\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\print\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\reorder-columns\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\reorder-columns\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\reorder-rows\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\reorder-rows\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\resizable\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\resizable\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\select2-filter\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\select2-filter\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\sticky-header\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\sticky-header\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\toolbar\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\toolbar\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\tree-column\bootstrap-table-tree-column.less" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\tree-column\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\treegrid\extension.json" />
+    <Content Include="cpts_594_bav\cpts_594_bav\extensions\treegrid\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\bootstrap-table-en-US.js.template" />
+    <Content Include="cpts_594_bav\cpts_594_bav\locale\README.md" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\css\bootstrap.css.map" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="cpts_594_bav\cpts_594_bav\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Table.ashx" />
+    <Content Include="banbuzheng.ashx" />
+    <Content Include="dayin.ashx" />
+    <Content Include="SignUp.ashx" />
+    <Content Include="cpts_594_bav\cpts_594_bav\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="cpts_594_bav\cpts_594_bav\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="cpts_594_bav\cpts_594_bav\js\bootstrap-select.js.map" />
+    <None Include="Properties\PublishProfiles\fabu.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="zhengjianbanli.ashx" />
+    <Content Include="xueyuan.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="cpts_594_bav\cpts_594_bav\assets\bootstrap-table\" />
+    <Folder Include="cpts_594_bav\cpts_594_bav\assets\multiple-select\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3015</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2785/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

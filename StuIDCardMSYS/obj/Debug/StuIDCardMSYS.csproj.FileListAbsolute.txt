@@ -1,0 +1,8 @@
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\StuIDCardMSYS.dll.config
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\StuIDCardMSYS.dll
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\StuIDCardMSYS.pdb
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\obj\Debug\StuIDCardMSYS.dll
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\obj\Debug\StuIDCardMSYS.pdb
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\Newtonsoft.Json.dll
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\Maticsoft.Common.dll
+E:\学生证管理系统\StuIDCardMSYS\StuIDCardMSYS\bin\Maticsoft.DBUtility.dll
